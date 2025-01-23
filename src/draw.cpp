@@ -93,6 +93,11 @@ void DRAW::Update()
 	DrawWinCounter();
 }
 
+bool DRAW::getMenuFrame()
+{
+	return inMenu;
+}
+
 int DRAW::getLeftHeight()
 {
 	return left_y;
@@ -106,6 +111,11 @@ int DRAW::getRightHeight()
 int DRAW::getVirtualHeight()
 {
 	return m_height;
+}
+
+void DRAW::setMenuFrame(bool change)
+{
+	this->inMenu = change;
 }
 
 void DRAW::setLeftHeight(int left_y)

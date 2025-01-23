@@ -87,6 +87,7 @@ void MOVEMENT::CaptureBallMovement()
 		draw->addWin(DRAW::GAME::LEFTWIN);
 		ResetBallPosition();
 		ballpos.m_xChange = -5;
+		draw->setMenuFrame(true);
 	}
 
 	// bounces off the left paddle
@@ -100,14 +101,33 @@ void MOVEMENT::CaptureBallMovement()
 		draw->addWin(DRAW::GAME::RIGHTWIN);
 		ResetBallPosition();
 		ballpos.m_xChange = 5;
+		draw->setMenuFrame(true);
 	}
 
 }
 
 void MOVEMENT::StartMovement()
 {
+	bool m_gameSwitch = true;
+
 	while (m_running)
 	{
+		//
+		// prevent game from running while in menu
+		//
+		if (draw->getMenuFrame()) {
+			m_gameSwitch = true;
+			continue;
+		}
+		//
+		// sleep the movement so the user has a second to process the gameplay
+		//
+		if (m_gameSwitch)
+		{
+			std::this_thread::sleep_for(_CHRONO seconds(1));
+			m_gameSwitch = false;
+		}
+
 		GetKeyState();
 		CaptureBallMovement();
 		SetNewPosition();

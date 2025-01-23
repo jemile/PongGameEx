@@ -166,6 +166,7 @@
     <ClInclude Include="src\draw.h" />
     <ClInclude Include="src\frame.h" />
     <ClInclude Include="src\glad.h" />
+    <ClInclude Include="src\hatten_font.h" />
     <ClInclude Include="src\movement.h" />
     <ClInclude Include="src\settings.h" />
   </ItemGroup>

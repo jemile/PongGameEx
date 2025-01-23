@@ -5,6 +5,7 @@ class DRAW
 private:
 	float M_PI = 3.141592653589793238462643383279502884197f;
 
+	bool inMenu = true;
 	int m_width = 0;
 	int m_height = 0;
 
@@ -37,7 +38,9 @@ public:
 	void DrawLine(int verticies[]);
 	void DrawCircle(float radius);
 	void Update();
-	virtual ~DRAW();
+
+	bool getMenuFrame();
+	void setMenuFrame(bool change);
 
 	void addWin(GAME type);
 	int getVirtualHeight();
@@ -50,4 +53,6 @@ public:
 
 	int* getBallCoordinates();
 	void setBallCoordinates(int* coordinates);
+
+	virtual ~DRAW();
 };

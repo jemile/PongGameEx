@@ -110,5 +110,8 @@
     <ClInclude Include="src\frame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\hatten_font.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
